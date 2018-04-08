@@ -35,9 +35,13 @@ int main(){
     fptr = fopen("data.bin","rb"); // open file
     fread(tc,sizeof(tc),1,fptr);   //reading from the file
 
-    printf("\n\n           Welcome To Periodic Table\n\n");
+    while(1){
+        printf("\n\n           Welcome To Periodic Table\n\n");
     printf("\n What do you want to search now?\n\n** If you want to search by Atomic Number Then press \'1\' \n\n** By Atomic Mass press \'2\'\n\n** Exit \'0\'\n ");
     scanf("%d",&press);
+    if(press == 0){
+        exit(1);
+    }
 
     switch(press){
     case 1:{
@@ -50,7 +54,7 @@ int main(){
             }
         }
         j = k;
-        if(j==-1){
+        if(j<0){
             printf("Not found please try again.......");
         }
     }
@@ -65,17 +69,15 @@ int main(){
             }
         }
         j = k;
-        if(j==-1){
+        if(j<01){
             printf("Not found please try again.............");
         }
     }
-        break;
-    case 0:
         break;
 
     default :
         printf("Please Give The Correct Option.............");
     }
-
+    }
     fclose(fptr);  //Closing the file
 }
